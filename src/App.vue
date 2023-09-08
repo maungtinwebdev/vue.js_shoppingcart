@@ -1,26 +1,21 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <h1>App Vue</h1> -->
+  <!-- <router-link to="/"><button>Page1</button></router-link>
+  <router-link to="/page2"><button>Page2</button></router-link>
+  <router-view></router-view> -->
+
+  <master/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Master from "./layout/Master.vue"
 
-export default {
+// import router from './routes/index'
+export default
+  {
   name: 'App',
-  components: {
-    HelloWorld
+  components:{
+    Master
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
