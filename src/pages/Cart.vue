@@ -29,9 +29,9 @@
                 </table>
             </div>
 
-            <!-- <div class="col-3 text-center d-flex d-xl-block d-sm-none">
-                <h1 class="d-sm-none">Total Price : </h1>
-            </div> -->
+            <div class="col-3 text-center d-flex d-xl-block">
+                <h1 class="">Total Price: ${{ totalPrice }}</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -45,24 +45,25 @@ export default {
     data() {
         return {
             products:[],
-            pricesum:[],
         }
     },
     created() {
         this.products = this.$store.state.cart;
-        const sum = this.products.reduce((partialSum, a) => partialSum + a, 0);
-       console.log(sum);
+    },
+    computed: {
+        totalPrice() {
+            return this.products.reduce((total, p) => total + p.qty * p.id, 0);
+        },
     },
     methods: {
-        
         addqty(p) {
             p.qty++;
         },
         reduceqty(p) {
-            p.qty--;
-        }
-       
+            if (p.qty > 0) {
+                p.qty--;
+            }
+        },
     }
-    
 }
 </script>
